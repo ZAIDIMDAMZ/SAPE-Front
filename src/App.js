@@ -1,41 +1,40 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Link,NavLink} from 'react-router-dom';
 import './App.css';
+import SignUpForm from './pages/SignUpForm'
+import SignInForm from './pages/SignInForm';
 
 class App extends Component{
   render(){
     return (
-      <div className="App">
-        <div className= "App__Aside"></div>
-        <div className= "App__Form">
-        <div className="PageSwitcher">
-          <a href="#" className="PageSwitcher__Item">Connexion</a>
-          <a href="#" className="PageSwitcher__Item PageSwitcher__Item--Active">Créer votre compte</a>
-        </div>
-        
-        <div className="FormeTitle">
-        <a href="#" className="FormTitle__Link">Connexion</a>or<a href="#" className="FormTitle__Link FormTitle__Link--Active">Créer votre compte</a>
-        </div>
-        <div className="FormCenter">
-          <form className="FormFields" onSubmit={this.handleSubmit}>
-            <div className="FormField">
-              <label className="FormFeild__Label" htmlFor="name">Nom et prénom</label>
-              <input type="text" id="name" className ="FormField__Input"  placeholder="Entrer votre nom et prénom" name="name"/>
+      <Router>
+        <div className="App">
 
-            </div>
-            <div className="FormField">
-              <label className="FormFeild__Label" htmlFor="password">Mot de passe</label>
-              <input type="password" id="password" className ="FormField__Input"  placeholder="Entrer votre mot de passe" name="password"/>
-            </div>
-            <div className="FormField">
-              <label className="FormFeild__Label" htmlFor="mail">Votre Mail</label>
-              <input type="mail" id="mail" className ="FormField__Input"  placeholder="Entrer votre mail" name="mail"/>
+          <div className= "App__Aside"></div>
+
+          <div className= "App__Form">
+            <div className="PageSwitcher">
+              <NavLink to="/signIn" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Connexion</NavLink>
+              <NavLink exact to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Créer votre compte</NavLink>
             </div>
             
+            <div className="FormeTitle">
+              <NavLink to="/signIn" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Connexion</NavLink> ou <NavLink exact to="/" 
+              activeClassName="FormTitle__Link--Active"  className="FormTitle__Link">Créer votre compte</NavLink>
+            </div>
+            
+            <Route exact path = '/' component={SignUpForm}>
+              {/* Page de création de compte */}
+            </Route>
 
-          </form>
+            <Route exact path = '/signIn' component ={SignInForm}>
+              {/* Page de connexion */}
+            </Route>
+
+          </div>
         </div>
-      </div>
-      </div>
+      </Router>
+    
     );
   }
 }
