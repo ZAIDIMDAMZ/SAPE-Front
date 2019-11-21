@@ -84,7 +84,7 @@ class SignInForm extends Component{
             console.log("Back result : \n" ,JSON.stringify(res))
             this.setToken(res.token)
             this.setIdTeacher(res.idMongo)
-            this.props.history.push("./")
+            this.props.history.push("./homePage")
         })
         .catch((err)=>{
             console.log("Error we cannot connect")

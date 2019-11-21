@@ -15,7 +15,7 @@ class App extends Component{
             {/* {/* Page d'acceuil */}
         </Route>
         
-        <Route exact path = '/' component ={test}>
+        <Route exact path = '/test' component ={test}>
             {/* {/* Page de Navigatioon  */}
         </Route>
         
@@ -23,7 +23,7 @@ class App extends Component{
           {/* Page de création de compte */}
         </Route>
 
-        <Route exact path = '/signIn' component ={SignInForm}>
+        <Route exact path = '/' component ={SignInForm}>
           {/* Page de connexion */}
         </Route>
         
