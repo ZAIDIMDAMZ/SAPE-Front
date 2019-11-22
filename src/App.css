@@ -9,6 +9,8 @@
   background-color: rgb(130, 130, 134);
 }
 
+
+
 .App__Form {
   width: 50%;
   background-color: rgb(64, 67, 73);
@@ -65,6 +67,15 @@
   font-size: 1.3em;
   margin: 0 10px;
   padding-bottom: 5px;
+}
+
+.form-link{
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.3em;
+  margin:0 auto;
+
 }
 
 .FormTitle__Link:first-child {

@@ -2,13 +2,16 @@ import React from 'react';
 import  '../toolBar/Toolbar.css'
 import{AppBar,Toolbar,Typography,IconButton,Menu,MenuItem,makeStyles}from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
-
+import DrawerImp from '../Drawer/Drawer'
+import {NavLink} from 'react-router-dom'
 const ITEM_HEIGHT = 48;
 
+let linkProfil=<NavLink to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Profil</NavLink>
+let Deconnexion=<NavLink to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Déconnexion</NavLink>
 //Values of list
 const options = [
-    'Profile',
-    'Déconnexion'
+    linkProfil,
+    Deconnexion
 ];
 
 //Styles to use
@@ -37,10 +40,10 @@ export default function DenseAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar variant="dense">
+        <Toolbar className="TB" variant="dense">
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="more" aria-controls="long-menu"
                 aria-haspopup="true" onClick={handleClick}>
-                <MenuIcon />
+                <MenuIcon  />
                 
             </IconButton>
             <Menu
