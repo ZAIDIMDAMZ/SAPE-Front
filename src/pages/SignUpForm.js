@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
-import { stat } from 'fs';
-import {BrowserRouter as Router, Route, Link,NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 class SignUpForm extends Component{
     constructor(){
@@ -16,7 +15,6 @@ class SignUpForm extends Component{
 
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
-
     }
 
     handleChange(event){
@@ -104,16 +102,9 @@ class SignUpForm extends Component{
                                 <div><label className="FormFeild__Label" htmlFor="name">Votre Statut</label></div>
                                 <input type="text" id="status" className ="FormField__Input"  placeholder="Entrer votre statut" name="status" value={this.state.status} onChange={this.handleChange}/>
                             </div>
-
-                            <div className="FormField">  
-                                <label className="FormField__Label">
-                                    <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange}/>J'accepte les conditions d'utilisation <a href="" className="FormField__TermsLink">Accèder aux conditions d'utilisation</a>
-                                </label>
-                            </div>
                             
                             <div className="FormField">
                                 <button className="FormField__Button mr-20">Valider</button>
-                                {/* <a href="#" className="FormField__Link">Je suis membre</a> */}
                             </div>
                             
                         </form>

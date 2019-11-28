@@ -6,17 +6,19 @@
 
 .App__Aside {
   width: 50%;
-  background-color: rgb(130, 130, 134);
+  background-color: rgb(136, 136, 255);
 }
 
-
+/* rgb(130, 130, 134) */
 
 .App__Form {
   width: 50%;
-  background-color: rgb(64, 67, 73);
+  background-color: rgb(20, 26, 37);
   padding: 25px 40px;
   overflow: auto;
 }
+
+/* rgb(64, 67, 73) */
 
 .PageSwitcher {
   display: flex;
@@ -150,4 +152,45 @@
   display: inline-block;
   padding-bottom: 2px;
   margin-left: 5px;
+}
+
+.center-divHomePage{
+  position: absolute;
+  margin: auto;
+  font-size: 14px;
+  padding: 100px;
+  color: white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 700px;
+  height: 100%;
+  background-color: rgb(20, 26, 37);
+  font-weight: bold; 
+}
+
+.spacer{
+  flex: 1;
+}
+
+.center-textHomePage{
+  text-align: center;
+  color: white;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.FormField__InputHomePage {
+  width: 85%; 
+  background-color: transparent;
+  border: none;
+  color: yellow;
+  outline: none;
+  border-bottom: 1px solid #445366;
+  font-size: 2em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
 }

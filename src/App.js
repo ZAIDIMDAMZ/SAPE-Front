@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link,NavLink} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import SignUpForm from './pages/SignUpForm'
 import SignInForm from './pages/SignInForm';
-import test from './pages/test';
 import homePage from './pages/homePage';
 
 class App extends Component{
@@ -15,9 +14,6 @@ class App extends Component{
             {/* {/* Page d'acceuil */}
         </Route>
         
-        <Route exact path = '/test' component ={test}>
-            {/* {/* Page de Navigatioon  */}
-        </Route>
         
         <Route exact path = '/SignUp' component={SignUpForm}>
           {/* Page de création de compte */}

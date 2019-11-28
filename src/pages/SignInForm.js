@@ -1,8 +1,6 @@
 import React,{Component} from 'react'
-import toastr from 'reactjs-toastr';
 import 'reactjs-toastr/lib/toast.css'
-import { promises } from 'dns';
-import {BrowserRouter as Router, Route, Link,NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 class SignInForm extends Component{
@@ -35,6 +33,34 @@ class SignInForm extends Component{
 
     getIdTeacher() {
         return localStorage.getItem('id_teacher');
+    }
+// ----------------------------------------
+    setName(nameTeacher){
+        localStorage.setItem('nameTeacher', nameTeacher);
+    }
+
+    getName(){
+        return localStorage.getItem('nameTeacher');
+    }
+// -----------------------------------------
+    setLastName(lastName){
+        localStorage.setItem("lastNameTeacher",lastName)
+    }
+
+    getLastName(){
+        return localStorage.getItem('lastNameTeacher');
+    }
+
+    setHourTD(hourTD){
+        localStorage.setItem("hourTD",hourTD)
+    }
+
+    setHourTP(hourTP){
+        localStorage.setItem("hourTP",hourTP)
+    }
+
+    setHourCours(hourCours){
+        localStorage.setItem("hourCours",hourCours)
     }
 
     // Password no getter 
@@ -84,11 +110,33 @@ class SignInForm extends Component{
             console.log("Back result : \n" ,JSON.stringify(res))
             this.setToken(res.token)
             this.setIdTeacher(res.idMongo)
+            this.setName(res.teacher.nameTeacher)
+            this.setLastName(res.teacher.lastnameTeacher)
+            
+            console.log('http://localhost:3000/teachers/parse/ics/'+this.getName() + '/' +this.getLastName());
+            fetch('http://localhost:3000/teachers/parse/ics/'+this.getName() + '/' +this.getLastName(),{
+                method:'GET',
+                headers: {'Accept': 'application/json',"Content-Type": "application/json"}
+            })
+            .then(result=>{
+                return new Promise((resolve,reject)=>{
+                    resolve (result.json())
+                })
+            })
+            .then(result=>{
+                
+                this.setHourCours(result.hourCours)
+                this.setHourTD(result.hourTD)
+                this.setHourTP(result.hourTP)
+            })
+            .catch(error=>{
+                console.log('error de chargement csi')
+            })
             this.props.history.push("./homePage")
         })
-        .catch((err)=>{
-            console.log("Error we cannot connect")
-        })
+        // .catch((err)=>{
+        //     console.log("Error we cannot connect")
+        // })
     }
     render(){
         return (
@@ -97,11 +145,12 @@ class SignInForm extends Component{
                 <div className= "App__Aside"></div>
 
                 <div className= "App__Form">
+                {/* <img src= {imageSite} alt='Error lors du chargement de la photo'/>  */}
                     <div className="PageSwitcher">
-                    <NavLink to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Connexion</NavLink>
-                    <NavLink exact to="/SignUp" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Créer votre compte</NavLink>
+                        <NavLink to="/" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Connexion</NavLink>
+                        <NavLink exact to="/SignUp" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Créer votre compte</NavLink>
                     </div>
-                    
+                
                     <div className="FormeTitle">
                     <NavLink to="/" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Connexion</NavLink> ou <NavLink exact to="/SignUp" 
                     activeClassName="FormTitle__Link--Active"  className="FormTitle__Link">Créer votre compte</NavLink>

@@ -1,12 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme,Drawer,CssBaseline,AppBar,Toolbar,List,Typography,Divider,IconButton,Link,ListItem,ListItemIcon,ListItemText } from '@material-ui/core';
+import { makeStyles, useTheme,Drawer,CssBaseline,AppBar,Toolbar,List,Typography,Divider,IconButton,Link} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import './../../App.css';
 import '../Drawer/MyCSSDrawer.css'
-import imageSite from '../../images/Cons.png'
+import logoSite from '../../images/Cons.png'
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -71,10 +71,10 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   
-  let linkProfil=<div className="form-link"><Link to="/" >Profil</Link></div>
-  let Deconnexion=<div className="form-link"><Link to="/" >Déconnexion</Link></div> 
-  let titreListe=<Typography className="CenterText" variant="h3" color="inherit">SAPE</Typography>
-  let insertImageSite=<center><img src= {imageSite} alt='Error lors du chargement de la photo'/></center>
+  let linkProfil=<div key="3" className="form-link"><Link to="/" >Profil</Link></div>
+  let Deconnexion=<div key="4" className="form-link"><Link to="/" >Déconnexion</Link></div> 
+  let titreListe=<Typography key="5" className="CenterText" variant="h3" color="inherit">SAPE</Typography>
+  let insertlogoSite=<center key="6"><img src= {logoSite} alt='Error lors du chargement du logo'/></center>
  
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -83,7 +83,8 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -93,7 +94,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            <img src= {imageSite} alt='Error lors du chargement de la photo'/>
+            <img src= {logoSite} alt='Error lors du chargement du logo'/>
           </Typography>
           <div className="spacer"></div>
           <div className="toolbar_navigation-items">
@@ -109,7 +110,7 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List className="BackToolbar" >
-          {[titreListe, insertImageSite]}
+          {[titreListe, insertlogoSite]}
         </List>
         <Divider />
         <List>
@@ -122,7 +123,6 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-
       </main>
     </div>
   );
