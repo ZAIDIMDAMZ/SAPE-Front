@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme,Drawer,CssBaseline,AppBar,Toolbar,List,Typography,Divider,IconButton,Link} from '@material-ui/core';
+import { makeStyles, useTheme,Drawer,CssBaseline,AppBar,Toolbar,List,Typography,Divider,IconButton} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -71,8 +71,12 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   
-  let linkProfil=<div key="3" className="form-link"><Link to="/" >Profil</Link></div>
-  let Deconnexion=<div key="4" className="form-link"><Link to="/" >Déconnexion</Link></div> 
+  let tel = <Typography key="8" className="CenterText" ><b>Tel: (+33) 169 477 000</b></Typography>
+  let adresse1 = <Typography key="9" className="CenterText" ><b>23 Boulevard François Mitterand</b></Typography>
+  let adresse2 = <Typography key="10" className="CenterText" ><b>91000, Evry</b></Typography>
+  let linkProfil=<div key="3" className="form-link"><a href="/" >Profil</a></div>
+  let Deconnexion=<div key="4" className="form-link"><a href="/" >Déconnexion</a></div> 
+  let linkMail=<div key="4" className="form-link"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new"><b>contact@sape.com</b></a></div> 
   let titreListe=<Typography key="5" className="CenterText" variant="h3" color="inherit">SAPE</Typography>
   let insertlogoSite=<center key="6"><img src= {logoSite} alt='Error lors du chargement du logo'/></center>
  
@@ -115,6 +119,10 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {[linkProfil, Deconnexion]}
+        </List>
+        <Divider />
+        <List>
+          {[tel, linkMail,adresse1,adresse2]}
         </List>
       </Drawer>
       <main

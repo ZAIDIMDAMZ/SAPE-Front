@@ -23,24 +23,27 @@ class HomePage extends Component{
     }
 
     render(){
-        
         let hourTD=localStorage.getItem('hourTD')
-        let hourCours=localStorage.getItem('hourCours')
+        let hourCM=localStorage.getItem('hourCM')
         let hourTP=localStorage.getItem('hourTP')
-        let hourTotal =hourCours*1.5+hourTP*1+hourTP*0.75
+        let hourExam=localStorage.getItem('hourExam')
+        let hourTotal =hourCM*1.5+hourTP*1+hourExam*1+hourTP*0.75
         return (
             
             <>
                 <CompoDrawer/>
-                 <div className="center-divHomePage">
+                 <div key='divGenerale' className="center-divHomePage">
                     <p className="center-textHomePage">Le suivi d'activités : </p>
                     <div><label>Nombre d'heures :</label></div>
-                    <input id="nbH" type="number" style={{textAlign:"right"}} className= "FormField__InputHomePage"  InputLabelProps={{shrink: true,}} margin="none" value={this.state.nbH} onChange = {this.handleChange}/>
+                    <input id="nbH" key='variableHours' type="number" style={{textAlign:"right"}} className= "FormField__InputHomePage"   margin="none" value={this.state.nbH} onChange = {this.handleChange}/>
                     <button onClick={function() { 
                                         if(localStorage.getItem('nbH')>hourTotal){
-                                            alert("Vous avez dépassé le nombre d'heures à assurées, vérifiez votre chiffrage!")
+                                            document.getElementById('pRes').innerHTML="Vous avez dépassé le nombre d'heures à assurées, vérifiez votre chiffrage!"
+                                            // alert("Vous avez dépassé le nombre d'heures à assurées, vérifiez votre chiffrage!")
                                         } else{
-                                            alert("Vous êtes dans les normes")
+                                            document.getElementById('pRes').innerHTML="Vous êtes dans les normes"
+                                           // result=<p style={{padding:10}}>Vous êtes dans les normes</p>
+                                            // alert("Vous êtes dans les normes")
                                         }
                                 }
                             } 
@@ -49,9 +52,10 @@ class HomePage extends Component{
                     </button>
                     <div><hr color="black"></hr></div>
                     <br></br>
-                    <p style={{padding:10}}>Vous avez assuré {hourCours} d'heures de cours </p>
+                    <p style={{padding:10}}>Vous avez assuré {hourCM} d'heures de cours </p>
                     <p style={{padding:10}}>Vous avez assuré {hourTD} d'heures de traveaux dirigés </p>
                     <p style={{padding:10}}>Vous avez assuré {hourTP} d'heures de traveaux pratiques </p>
+                    <p style={{padding:10}}>Vous avez assuré {hourExam} d'heures d'examen'</p>
                     <br></br>
                     <div><hr color="black"></hr></div>
                     <br></br>
@@ -59,6 +63,7 @@ class HomePage extends Component{
                     <br></br>
                     <div><hr color="black"></hr></div>
                     <br></br>
+                    <p id = 'pRes'style={{padding:10}}></p>
                  </div>
             </>
         

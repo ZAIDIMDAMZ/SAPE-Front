@@ -59,8 +59,12 @@ class SignInForm extends Component{
         localStorage.setItem("hourTP",hourTP)
     }
 
-    setHourCours(hourCours){
-        localStorage.setItem("hourCours",hourCours)
+    setHourCours(hourCM){
+        localStorage.setItem("hourCM",hourCM)
+    }
+
+    setHourExam(hourExam){
+        localStorage.setItem("hourExam",hourExam)
     }
 
     // Password no getter 
@@ -68,7 +72,6 @@ class SignInForm extends Component{
         if(event){
             this.setState({password : event.target.value});
         }
-        
     }    
 
     // desconnect
@@ -114,7 +117,7 @@ class SignInForm extends Component{
             this.setLastName(res.teacher.lastnameTeacher)
             
             console.log('http://localhost:3000/teachers/parse/ics/'+this.getName() + '/' +this.getLastName());
-            fetch('http://localhost:3000/teachers/parse/ics/'+this.getName() + '/' +this.getLastName(),{
+            fetch('http://localhost:3000/teachers/parse/ics/'+this.getName().toLocaleLowerCase() + '/' +this.getLastName().toLocaleLowerCase(),{
                 method:'GET',
                 headers: {'Accept': 'application/json',"Content-Type": "application/json"}
             })
@@ -125,18 +128,19 @@ class SignInForm extends Component{
             })
             .then(result=>{
                 
-                this.setHourCours(result.hourCours)
+                this.setHourCours(result.hourCM)
                 this.setHourTD(result.hourTD)
                 this.setHourTP(result.hourTP)
+                this.setHourExam(result.hourExam)
             })
             .catch(error=>{
                 console.log('error de chargement csi')
             })
             this.props.history.push("./homePage")
         })
-        // .catch((err)=>{
-        //     console.log("Error we cannot connect")
-        // })
+        .catch((err)=>{
+            console.log("Error we cannot connect")
+        })
     }
     render(){
         return (
