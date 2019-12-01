@@ -2,8 +2,8 @@ import React,{Component} from 'react'
 import {NavLink} from 'react-router-dom';
 
 class SignUpForm extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             mail:"",
             password:"",
@@ -29,15 +29,7 @@ class SignUpForm extends Component{
 
     handleSubmit(event){
         event.preventDefault()
-        let user = {
-            nom:this.state.name,
-            prenom:this.state.lastName,
-            mail:this.state.mail,
-            mdp:this.state.password,
-            statut:this.state.status
-
-        }
-        console.log(user)
+        
         fetch('http://localhost:3000/teachers',{
             method: 'POST',
             body:JSON.stringify({
@@ -74,12 +66,11 @@ class SignUpForm extends Component{
                     activeClassName="FormTitle__Link--Active"  className="FormTitle__Link">Créer votre compte</NavLink>
                     </div>
                         
-                        
                     <div className="FormCenter">
-                        <form onSubmit={this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit}>
+                        <form key="frm" onSubmit={this.handleSubmit} className="FormFields" >
                             
                             <div className="FormField">
-                                <div><label className="FormFeild__Label" htmlFor="name">Nom</label></div>
+                                <div key='d' ><label className="FormFeild__Label" htmlFor="name">Nom</label></div>
                                 <input type="text" id="name" className ="FormField__Input"  placeholder="Entrer votre le nom" name="name" value={this.state.name} onChange={this.handleChange} />
                             </div>
 

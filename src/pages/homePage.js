@@ -55,7 +55,7 @@ class HomePage extends Component{
                     <p style={{padding:10}}>Vous avez assuré {hourCM} d'heures de cours </p>
                     <p style={{padding:10}}>Vous avez assuré {hourTD} d'heures de traveaux dirigés </p>
                     <p style={{padding:10}}>Vous avez assuré {hourTP} d'heures de traveaux pratiques </p>
-                    <p style={{padding:10}}>Vous avez assuré {hourExam} d'heures d'examen'</p>
+                    <p style={{padding:10}}>Vous avez assuré {hourExam} d'heures d'examens</p>
                     <br></br>
                     <div><hr color="black"></hr></div>
                     <br></br>

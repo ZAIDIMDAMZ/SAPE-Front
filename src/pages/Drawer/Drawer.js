@@ -74,7 +74,7 @@ export default function PersistentDrawerLeft() {
   let tel = <Typography key="8" className="CenterText" ><b>Tel: (+33) 169 477 000</b></Typography>
   let adresse1 = <Typography key="9" className="CenterText" ><b>23 Boulevard François Mitterand</b></Typography>
   let adresse2 = <Typography key="10" className="CenterText" ><b>91000, Evry</b></Typography>
-  let linkProfil=<div key="3" className="form-link"><a href="/" >Profil</a></div>
+  let linkProfil=<div key="3" className="form-link"><a href="/Profil" >Profil</a></div>
   let Deconnexion=<div key="4" className="form-link"><a href="/" >Déconnexion</a></div> 
   let linkMail=<div key="4" className="form-link"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new"><b>contact@sape.com</b></a></div> 
   let titreListe=<Typography key="5" className="CenterText" variant="h3" color="inherit">SAPE</Typography>

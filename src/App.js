@@ -4,6 +4,7 @@ import './App.css';
 import SignUpForm from './pages/SignUpForm'
 import SignInForm from './pages/SignInForm';
 import homePage from './pages/homePage';
+import Profil from './pages/ProfilTeacher/Profil'
 
 class App extends Component{
   render(){
@@ -23,6 +24,9 @@ class App extends Component{
           {/* Page de connexion */}
         </Route>
         
+        <Route exact path = '/profil' component ={Profil}>
+          {/* Page de connexion */}
+        </Route>
       </Router>
 
         

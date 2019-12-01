@@ -2,10 +2,9 @@ import React,{Component} from 'react'
 import 'reactjs-toastr/lib/toast.css'
 import {NavLink} from 'react-router-dom';
 
-
 class SignInForm extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             mail:"",
             password:""
@@ -93,11 +92,6 @@ class SignInForm extends Component{
 
     handleSubmit(event){
         event.preventDefault()
-        let dataToSend ={
-            mail:this.state.mail,
-            mdp:this.state.password
-        }
-        console.log(dataToSend)
         fetch('http://localhost:3000/teachers/login/'+this.state.mail + '/' +this.state.password,{
             method: 'GET',
             headers: {'Accept': 'application/json',"Content-Type": "application/json"}
@@ -162,7 +156,7 @@ class SignInForm extends Component{
                     
                         <div className="FormCenter">
                             
-                            <form onSubmit= {this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit}>
+                            <form onSubmit={this.handleSubmit} className="FormFields">
 
                                 <div className="FormField">
                                     <div><label className="FormFeild__Label" htmlFor="mail">Votre Mail</label></div>
