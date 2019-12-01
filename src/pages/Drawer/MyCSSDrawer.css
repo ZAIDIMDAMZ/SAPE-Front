@@ -1,0 +1,38 @@
+.myDrawer_navigation-items a{
+    color: darkseagreen;
+    text-decoration: none;
+}
+.myDrawer_navigation-items a:hover,
+.myDrawer_navigation-items a:active{
+    color: orange ;
+}
+
+.myDrawer_navigation-items li{
+    padding: 0 0.5rem;
+}
+.myDrawer_navigation-items ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.form-link a{
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+}
+.form-link a:hover,
+.form-link a:active{
+    color: orange ;
+}
+
+.BackToolbar{
+    background-color:black;
+    color: white;
+}
+
+.CenterText{
+    text-align: center;
+    font-style: italic;
+}
