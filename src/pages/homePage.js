@@ -38,10 +38,10 @@ class HomePage extends Component{
                     <input id="nbH" key='variableHours' type="number" style={{textAlign:"right"}} className= "FormField__InputHomePage"   margin="none" value={this.state.nbH} onChange = {this.handleChange}/>
                     <button onClick={function() { 
                                         if(localStorage.getItem('nbH')>hourTotal){
-                                            document.getElementById('pRes').innerHTML="Vous avez dépassé le nombre d'heures à assurées, vérifiez votre chiffrage!"
+                                            document.getElementById('pRes').innerHTML="Vous avez dépassé le nombre d'heures à assurées, vérifiez votre chiffrage vous êtes à "+((100 * localStorage.getItem('nbH'))/hourTotal).toFixed(2) +" %"
                                             // alert("Vous avez dépassé le nombre d'heures à assurées, vérifiez votre chiffrage!")
                                         } else{
-                                            document.getElementById('pRes').innerHTML="Vous êtes dans les normes"
+                                            document.getElementById('pRes').innerHTML="Vous êtes dans les normes à "+((100 * localStorage.getItem('nbH'))/hourTotal).toFixed(2) +"%"
                                            // result=<p style={{padding:10}}>Vous êtes dans les normes</p>
                                             // alert("Vous êtes dans les normes")
                                         }
